@@ -1,0 +1,152 @@
+{
+	enabled: true
+	blankSlate: false
+	replaceableBlocks: [ "stone", "dirt", "sandstone" ]
+	replaceDecorators: true
+	biomes: { 
+		types: [ "MESA", "SANDY", "HOT", "DRY", "DESERT"  ]
+	}
+	rooms: {
+		scale: 2
+		scaleY: 0.3
+	}
+	tunnels: {
+		frequency: 80
+		minHeight: 64
+		maxHeight: 250
+		distance: 80
+		systemChance: 0.4
+		noiseYReduction: true
+		resizeBranches: true
+		scale: {
+			randFactor: 1.5
+			startVal: 5
+			startValRandFactor: 1.5
+		}
+		scaleY: {
+			randFactor: 3
+			startVal: 0.2
+		}
+		noise3D: {
+			frequency: 0.02
+			scale: 0.4
+			scaleY: 0.33
+			type: Cellular
+			returnType: Distance3Div
+			jitter: 1
+			perturb: true
+			perturbAmp: 10
+			perturbFreq: 0.025
+			invert: true
+		}
+	}
+	wallDecorators: [
+	{
+		states: sand
+		chance: 0.6
+		minHeight: 64
+		maxHeight: 250
+		matchers: [ "stone", "dirt", "sandstone" ]
+		directions: all
+		preference: replace_match
+	}
+	{
+		states: sandstone
+		chance: 0.2
+		minHeight: 64
+		maxHeight: 250
+		matchers: stone
+		directions: all
+		preference: replace_match
+	}
+	{
+		states: stone
+		chance: 0.2
+		minHeight: 64
+		maxHeight: 250
+		matchers: [ "stone", "sandstone" ]
+		directions: all
+		preference: replace_match
+	}
+	{
+      states: gravel
+      chance: 0.3
+      minHeight: 64
+	  maxHeight: 250
+      directions: down
+      matchers: [ "stone", "stone:5", "dirt", "sandstone" ]
+      preference: replace_match
+    }
+	{
+      states: deadbush
+      chance: 0.05
+      minHeight: 64
+	  maxHeight: 250
+      directions: down
+      matchers: sand
+      preference: replace_original
+    }
+	]
+
+# commented out while I figure out how to make them work properly
+
+	/*largeStalactites: [
+    {
+		state: glowstone
+		wide: false
+		maxLength: 2
+		minHeight: 64
+		maxHeight: 250
+		chance: 0.02
+		matchers: [ "stone", "stone:5", "dirt", "sandstone" ]
+    }
+    {
+      state: sand
+      wide: false
+      maxLength: 2
+      minHeight: 65
+      maxHeight: 250
+      matchers: [ "stone", "stone:5", "dirt", "sandstone" ]
+	  chance: 0.3
+      noise2D: { frequency: 0.2 }
+    }
+    {
+      state: sandstone
+	  wide: true
+      maxLength: 6
+      minHeight: 65
+      maxHeight: 250
+      chance: 0.3
+      matchers: [ "stone", "sandstone" ]
+    }
+  ]*/
+	giantPillars: [
+    { 
+       state: sandstone:2
+       stairBlock: sandstone_stairs
+       frequency: 30
+       minHeight: 64
+       maxHeight: 250
+       minLength: 4
+       maxLength: 12
+    }
+	  { 
+       state: sandstone:1
+       stairBlock: sandstone_stairs
+       frequency: 10
+       minHeight: 64
+       maxHeight: 250
+       minLength: 4
+       maxLength: 12
+    }
+		{ 
+       state: quartz_block:2
+       stairBlock: quartz_stairs
+       frequency: 5
+       minHeight: 64
+       maxHeight: 250
+       minLength: 4
+       maxLength: 8
+    }
+	]
+}
