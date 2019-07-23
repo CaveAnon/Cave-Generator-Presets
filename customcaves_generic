@@ -1,0 +1,51 @@
+# is barely edited. Placeholder for now, made just to test possibilities of height and biomedefined generation and interaction. 
+
+{
+  enabled: true
+  blankSlate: true
+  caverns: {
+    enabled: true
+	frequency : 3
+    minHeight: 7
+    maxHeight: 64
+    noise3D: {
+      frequency: 0.02
+      scale: 0.2
+      scaleY: 0.5
+    }
+  }
+  tunnels: {
+    frequency: 7
+	minHeight: 8
+	maxHeight: 64
+	distance: 3
+    systemChance: 0.35
+    noiseYReduction: false
+    resizeBranches: true
+	twistXZ: {
+		startVal: 0
+		factor: 0.75
+		randFactor: 0.4
+		exponent: 1
+	}
+    twistY: {
+      factor: 1
+    }
+    scale: {
+      randFactor: 0.6
+      startVal: 0.5
+      startValRandFactor: 0.6
+    }
+    scaleY: {
+      randFactor: 0.5
+      startVal: 0.2
+    }
+  }
+  caveBlocks: [
+	{
+	states: [ "lava" ]
+	maxHeight: 8
+	}
+  ]
+}
+
