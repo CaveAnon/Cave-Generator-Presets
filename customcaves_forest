@@ -12,7 +12,7 @@
 	}
 	tunnels: {
 		frequency: 30
-		minHeight: 64
+		minHeight: 160
 		maxHeight: 250
 		distance: 80
 		systemChance: 0.9
@@ -45,7 +45,7 @@
   ravines: {
      # Increase ravine frequency.
     chance: 0.02
-    minHeight: 64
+    minHeight: 160
     maxHeight: 220
     distance: 60
     twistXZ: { 
@@ -76,7 +76,7 @@
 	{
 		states: leaves:1
 		chance: 0.08
-		minHeight: 64
+		minHeight: 160
 		maxHeight: 250
 		matchers: stone
 		directions: down
@@ -86,7 +86,7 @@
 	{
 		states: vine
 		chance: 0.15
-		minHeight: 64
+		minHeight: 160
 		maxHeight: 250
 		matchers: [ "stone", "dirt" ]
 		directions: up
@@ -98,7 +98,7 @@
 	{
 		states: leaves:1
 		chance: 0.3
-		minHeight: 64
+		minHeight: 160
 		maxHeight: 250
 		matchers: stone
 		directions: [ "down", "side" ]
@@ -112,7 +112,7 @@
 	{
 		states: dirt
 		chance: 0.15
-		minHeight: 64
+		minHeight: 160
 		maxHeight: 250
 		matchers: stone
 		directions: all
@@ -125,7 +125,7 @@
 	{
 		states: gravel
 		chance: 0.05
-		minHeight: 64
+		minHeight: 160
 		maxHeight: 250
 		matchers: stone
 		directions: all
@@ -138,7 +138,7 @@
 	{
 		states: dirt:2
 		chance: 0.25
-		minHeight: 64
+		minHeight: 160
 		maxHeight: 250
 		matchers: stone
 		directions: down
@@ -146,18 +146,18 @@
 		noise3d: {}
 	}
 	{
-		  states: glowstone
-		  chance: 0.002
-		  minHeight: 64
-		  maxHeight: 250
-		  directions: up
-		  matchers: [ "stone", "stone:5" ]
-		  preference: replace_match
+		states: glowstone
+		chance: 0.0008
+		minHeight: 160
+		maxHeight: 250
+		directions: [ "side", "up" ]
+		matchers: [ "stone", "stone:5", "dirt", "sandstone", "sand" ]
+		preference: replace_original
     }
 	{
 		  states: tallgrass:2
 		  chance: 0.05
-		  minHeight: 64
+		  minHeight: 160
 		  maxHeight: 250
 		  directions: down
 		  matchers: [ "dirt", "dirt:2" ]
@@ -167,7 +167,7 @@
     {
 		  states: tallgrass:1
 		  chance: 0.2
-		  minHeight: 64
+		  minHeight: 160
 		  maxHeight: 250
 		  directions: down
 		  matchers: [ "dirt", "dirt:2" ]
@@ -177,7 +177,7 @@
     {
 		  states: [ "red_flower", "yellow_flower", "red_flower:1" ]
 		  chance: 0.01
-		  minHeight: 64
+		  minHeight: 160
 		  maxHeight: 250
 		  directions: down
 		  matchers: [ "dirt", "dirt:2" ]
@@ -186,7 +186,7 @@
     {
 		  states: [ "red_mushroom", "brown_mushroom" ]
 		  chance: 0.04
-		  minHeight: 64
+		  minHeight: 160
 		  maxHeight: 250
 		  directions: down
 		  matchers: [ "grass", "stone", "stone:5", "dirt", "dirt:2"]
@@ -195,7 +195,7 @@
 	{
 		states: log:1
 		chance: 0.10
-		minHeight: 64
+		minHeight: 160
 		maxHeight: 250
 		matchers: [ "stone", "dirt" ]
 		directions: up
@@ -206,7 +206,7 @@
     {
 		state: log
 		frequency: 12
-        minHeight: 64
+        minHeight: 160
         maxHeight: 250
         minLength: 3
         maxLength: 6
@@ -214,7 +214,7 @@
 	{
 		state: red_mushroom_block
 		frequency: 8
-        minHeight: 64
+        minHeight: 160
         maxHeight: 250
         minLength: 3
         maxLength: 6
@@ -222,7 +222,7 @@
 	{
 		state: brown_mushroom_block
 		frequency: 8
-        minHeight: 64
+        minHeight: 160
         maxHeight: 250
         minLength: 3
         maxLength: 6
@@ -230,26 +230,26 @@
   ]
 	largeStalagmites: [
      # Small stone boulders
-    {
-      state: mossy_cobblestone
-      maxLength: 2
-      minHeight: 15
-      maxHeight: 250
-      chance: 0.02
-      noise2D: {}
-    }
-  ]
-  stoneClusters: [
-    {
-      states: "gravel"
-      chance: 0.9
-      radiusX: 8
-      radiusY: 8
-      radiusZ: 8
-      radiusVariance: 16
-      startHeight: 128
-      heightVariance: 120
-    }
+		{
+		  state: mossy_cobblestone
+		  maxLength: 2
+		  minHeight: 160
+		  maxHeight: 250
+		  chance: 0.02
+		  noise2D: {}
+		}
+	]
+	stoneClusters: [
+		{
+		  states: "gravel"
+		  chance: 0.9
+		  radiusX: 8
+		  radiusY: 8
+		  radiusZ: 8
+		  radiusVariance: 16
+		  startHeight: 128
+		  heightVariance: 120
+		}
     {
       states: dirt
       chance: 0.9
@@ -261,4 +261,98 @@
       heightVariance: 120
     }
   ]
+  structures: [
+	{
+		name: lushmushroomflat
+		offset: [ 0, 0, 0 ]
+		integrity: 1
+		matchers: [ "stone", "dirt", "gravel", "dirt:2", "leaves:1", "log:1" ]
+		directions: [ "down", "side" ]
+		frequency: 4
+		chance: 0.25
+		minHeight: 160
+		maxHeight: 250
+		noise2D: {}
+    }
+	{
+		name: lushshrub1
+		offset: [ 0, 0, 0 ]
+		integrity: 1
+		matchers: [ "stone", "dirt", "gravel", "dirt:2", "log:1" ]
+		solidMatchers: [
+			[0, -1, 0]
+		]
+		directions: down
+		frequency: 3
+		chance: 0.25
+		minHeight: 160
+		maxHeight: 250
+		rotateRandomly: true
+    }
+	{
+		name: lushshrub2
+		offset: [ 0, 0, 0 ]
+		integrity: 1
+		matchers: [ "stone", "dirt", "gravel", "dirt:2", "log:1" ]
+		solidMatchers: [
+			[0, -1, 0]
+		]
+		directions: down
+		frequency: 3
+		chance: 0.25
+		minHeight: 160
+		maxHeight: 250
+		rotateRandomly: true
+    }
+	{
+		name: lushspawner1_zombie
+		offset: [ 0, 0, 0 ]
+		integrity: 0.8
+		matchers: [ "stone", "dirt", "gravel", "dirt:2", "log:1" ]
+		solidMatchers: [
+			[0, -1, 0]
+		]
+		directions: down
+		frequency: 3
+		chance: 0.1
+		minHeight: 160
+		maxHeight: 250
+		rotateRandomly: true
+    }
+	{
+		name: lushspawner2_creeper
+		offset: [ 0, 0, 0 ]
+		integrity: 1
+		matchers: [ "stone", "dirt", "gravel", "dirt:2", "log:1" ]
+		solidMatchers: [
+			[0, -1, 0],
+			[2, -1, -1],
+			[-1, -1, 2]
+		]
+		directions: down
+		frequency: 3
+		chance: 0.05
+		minHeight: 160
+		maxHeight: 250
+		rotateRandomly: true
+    }
+	{
+		name: lushspawner3_creeper
+		offset: [ 0, 0, 0 ]
+		integrity: 1
+		matchers: [ "stone", "dirt", "gravel", "dirt:2", "log:1" ]
+		solidMatchers: [
+			[0, -1, 0],
+			[2, -1, -1],
+			[-1, -1, 2]
+		]
+		directions: down
+		frequency: 3
+		chance: 0.05
+		minHeight: 160
+		maxHeight: 250
+		rotateRandomly: true
+    }
+	
+	]
 }
