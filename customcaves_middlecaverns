@@ -1,24 +1,23 @@
-# is barely edited. Placeholder for now, made just to test possibilities of height and biomedefined generation and interaction. 
-
+#Just a basic placeholder template to be worked with later
 {
   enabled: true
   blankSlate: true
   caverns: {
     enabled: true
-	frequency : 3
-    minHeight: 7
-    maxHeight: 64
+	frequency : 2
+    minHeight: 80
+    maxHeight: 159
     noise3D: {
-      frequency: 0.02
-      scale: 0.2
+      frequency: 0.06
+      scale: 0.3
       scaleY: 0.5
     }
   }
   tunnels: {
-    frequency: 7
-	minHeight: 8
-	maxHeight: 64
-	distance: 3
+    frequency: 2
+	minHeight: 80
+	maxHeight: 159
+	distance: 40
     systemChance: 0.35
     noiseYReduction: false
     resizeBranches: true
@@ -33,7 +32,7 @@
     }
     scale: {
       randFactor: 0.6
-      startVal: 0.5
+      startVal: 0.7
       startValRandFactor: 0.6
     }
     scaleY: {
